@@ -52,13 +52,13 @@
             ?>
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="users/home">Home</a>
+                        <a href="<?php echo ROOT; ?>users">Home</a>
                     </li>
                     <li>
-                        <a href="users/users">List all users</a>
+                        <a href="<?php echo ROOT; ?>users/allUsers">List all users</a>
                     </li>
                     <li>
-                        <a href="users/logout">Logout</a>
+                        <a href="<?php echo ROOT; ?>users/logout">Logout</a>
                     </li>
                 </ul>
             <?php 

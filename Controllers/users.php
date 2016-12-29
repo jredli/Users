@@ -21,6 +21,10 @@ class Users extends Controller{
 		$this->view->render('users/home');
 	}
 
+	public function allUsers(){
+		$this->view->render('users/all_users');
+	}
+
 
 	//Uništava sesiju
 	function logout(){
