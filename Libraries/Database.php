@@ -16,12 +16,25 @@ class Database extends PDO{
 		$statement = $this->prepare($query);
 		//Postavljanje vrednosti koje se dinamički pune
 		foreach($bindValues as $key => $value){
-			$statement->bindValue("$key", $value);
+			$statement->bindValue(":$key", $value);
 		}
 
 		$statement->execute();
 		return $statement->fetchAll($fetchMode);
+	}
 
+	public function insert($table, $data){
 
+		//
+		$dataName = implode("', '", array_keys($data));
+		$dataValues = ":" . implode("', :", array_keys($data));
+
+		$statement = $this->prepare("INSERT INTO $table ($dataName) VALUES ($dataValues)";
+
+		foreach($bindValues as $key => $value){
+			$statement->bindValue(":$key", $value);
+		}
+
+		$statement->execute();
 	}
 }
