@@ -46,8 +46,7 @@
                 </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <?php 
-                print_r($_SESSION);
+            <?php                 
                 Session::init(); 
                 if(Session::get('loggedIn') == true): 
             ?>

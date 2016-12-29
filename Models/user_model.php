@@ -20,7 +20,7 @@ class user_model extends Model{
 		if($check > 0){
 			//Startovanje i popunjavanje sesije
 			Session::init();
-			Session::set('loggedIn', true);
+			Session::set('loggedIn', true);			
 			header('location: ../users');
 		} else {
 			header('location: ../index');
