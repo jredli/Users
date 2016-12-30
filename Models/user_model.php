@@ -34,7 +34,7 @@ class user_model extends Model{
 		return $this->db->select("SELECT * FROM user ORDER BY reg_date ASC");
 	}
 
-	//Registracija novog korisnika
+	//Registracija novog korisnika, $table - ime tabele, $newUser - niz popunjen vrednostima iz forme za registraciju
 	public function register($table, $newUser){
 		$this->db->insert($table, $newUser);		
 	}
