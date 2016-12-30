@@ -35,7 +35,7 @@ class user_model extends Model{
 	}
 
 	//Za ispit ulogovanog korisnika
-	public function user($data){
-
+	public function register($usr, $pass){
+		
 	}
 }

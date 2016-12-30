@@ -18,6 +18,11 @@ class Index extends Controller{
 		$this->model->login();
 	}
 
+	//Registracija korisnika
+	public function register($usr, $pass){
+
+	}
+
 
 
 }

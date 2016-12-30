@@ -20,16 +20,7 @@
                     }
                  ?>                   
                 </tbody>
-              </table>
-
-
-
-
-
-
-            <table>
-                 
-                </table>    
+              </table>  
             </div>
         </div>
         <!-- /.row -->
