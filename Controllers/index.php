@@ -19,8 +19,15 @@ class Index extends Controller{
 	}
 
 	//Registracija korisnika
-	public function register($usr, $pass){
-
+	public function register(){
+		$this->loadModel('user_model');
+		$newUser = array(
+			'username' => $_POST['regUser'],
+			'password' => md5($_POST['regPass']),
+			'reg_date' => date('Y-m-d H:i:s')
+		);	
+		$this->model->register('user', $newUser);
+		header('location: ../users/index');
 	}
 
 

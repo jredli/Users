@@ -15,7 +15,7 @@
                       <input type="password" class="form-control" name="tbPass" placeholder="password">
                     </div>    
                     <button type="submit" class="btn btn-info">Log In</button>                   
-
+</form> 
 <!-- Small modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Register</button>
 
@@ -26,7 +26,7 @@
         <div class="row">
           <h3>Registration form</h3>
         </div>
-        <form action="index/login" method="post">
+        <form action="index/register" method="post">
       <div class="form-group">
 
                       <label for="regUser">Username:</label>
@@ -42,7 +42,7 @@
     </div>
   </div>
 </div>
-                </form> 
+                
 
 
             </div>

@@ -27,13 +27,13 @@ class Database extends PDO{
 	public function insert($table, $data){
 
 		//Cepa niz i razdvaja ih ','
-		$dataName = implode("', '", array_keys($data));
+		$dataName = implode('`, `', array_keys($data));
 		//Dodaje ':' zbog bindValue-a, cepa niz i razdvaja ih po ', :'
-		$dataValues = ":" . implode("', :", array_keys($data));
+		$dataValues = ":" . implode(', :', array_keys($data));
 
-		$statement = $this->prepare("INSERT INTO $table ($dataName) VALUES ($dataValues)");
+		$statement = $this->prepare("INSERT INTO $table (`$dataName`) VALUES ($dataValues)");
 
-		foreach($bindValues as $key => $value){
+		foreach($data as $key => $value){
 			$statement->bindValue(":$key", $value);
 		}
 

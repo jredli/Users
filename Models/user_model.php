@@ -34,8 +34,8 @@ class user_model extends Model{
 		return $this->db->select("SELECT * FROM user ORDER BY reg_date ASC");
 	}
 
-	//Za ispit ulogovanog korisnika
-	public function register($usr, $pass){
-		
+	//Registracija novog korisnika
+	public function register($table, $newUser){
+		$this->db->insert($table, $newUser);		
 	}
 }
