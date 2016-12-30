@@ -3,12 +3,11 @@
 
         <div class="row">
             <div class="col-lg-4 col-lg-offset-4 text-center">           
-             <table class="table">
+             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Date registred</th>
+                    <td><b>Username<b></td>
+                    <td><b>Date registred</b></td>
                   </tr>
                 </thead>
                 <tbody>
@@ -16,8 +15,8 @@
                     foreach($this->all_users as $key => $value) {
                         echo '<tr>';
                         echo '<td>' . $value['username'] . '</td>';
-                        echo '<td>' . $value['password'] . '</td>';
-                        echo '<td>' . $value['reg_date'] . '</td>';     
+                        echo '<td>' . $value['reg_date'] . '</td>';
+                        echo '</tr>';
                     }
                  ?>                   
                 </tbody>

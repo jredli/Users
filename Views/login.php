@@ -6,13 +6,14 @@
                 <form action="index/login" method="post">
                     <div class="form-group">
                       <label for="tbUser">Username:</label>
-                      <input type="text" class="form-control" name="tbUser" placeholder="Enter username">
+                      <input type="text" class="form-control" name="tbUser" placeholder="username">
                     </div>
                     <div class="form-group">
                       <label for="tbPass">Password:</label>
-                      <input type="password" class="form-control" name="tbPass" placeholder="Enter password">
+                      <input type="password" class="form-control" name="tbPass" placeholder="password">
                     </div>    
-                    <button type="submit" class="btn btn-primary">Log In</button>
+                    <button type="submit" class="btn btn-info">Log In</button>
+                    <button type="submit" class="btn btn-success">Register</button>
                 </form>           
             </div>
         </div>

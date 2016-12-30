@@ -11,7 +11,7 @@ class user_model extends Model{
 		$query = $this->db->prepare("SELECT * FROM user WHERE username = :usr AND password = :pass");
 		$query->execute(array(
 			':usr' => $_POST['tbUser'],
-			':pass' => $_POST['tbPass']
+			':pass' => md5($_POST['tbPass'])
 		));
 
 		var_dump($query);
