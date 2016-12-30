@@ -20,17 +20,22 @@ class user_model extends Model{
 		if($check > 0){
 			//Startovanje i popunjavanje sesije
 			Session::init();
-			Session::set('loggedIn', true);			
+			Session::set('loggedIn', true);	
+			Session::set('user', $_POST['tbUser']);		
 			header('location: ../users');
 		} else {
 			header('location: ../index');
 		}
 	}
 
-	public function all_users(){
-		$query = $this->db->prepare("SELECT * FROM users ");
-		$query->execute();
 
-		return $query->fetch();
+	//Dohvatanje svih korisnika po datumu kreiranja naloga
+	public function all_users(){
+		return $this->db->select("SELECT * FROM user ORDER BY reg_date ASC");
+	}
+
+	//Za ispit ulogovanog korisnika
+	public function user($data){
+
 	}
 }

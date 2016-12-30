@@ -23,13 +23,15 @@ class Database extends PDO{
 		return $statement->fetchAll($fetchMode);
 	}
 
+	//Osnovna funkcija za sve INSERT upite
 	public function insert($table, $data){
 
-		//
+		//Cepa niz i razdvaja ih ','
 		$dataName = implode("', '", array_keys($data));
+		//Dodaje ':' zbog bindValue-a, cepa niz i razdvaja ih po ', :'
 		$dataValues = ":" . implode("', :", array_keys($data));
 
-		$statement = $this->prepare("INSERT INTO $table ($dataName) VALUES ($dataValues)";
+		$statement = $this->prepare("INSERT INTO $table ($dataName) VALUES ($dataValues)");
 
 		foreach($bindValues as $key => $value){
 			$statement->bindValue(":$key", $value);

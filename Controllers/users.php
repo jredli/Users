@@ -22,6 +22,9 @@ class Users extends Controller{
 	}
 
 	public function allUsers(){
+		$this->loadModel('user_model');
+		$this->view->all_users = $this->model->all_users();
+
 		$this->view->render('users/all_users');
 	}
 
