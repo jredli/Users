@@ -1,42 +1,46 @@
 <?php
 
 //Povezuje PHP sa serverom
-class Database extends PDO{
+class Database extends PDO
+{
 
-	public function __construct(){
+    public function __construct()
+    {
 
-		//Povezivanje sa bazom
-		parent::__construct('mysql:host=localhost;dbname=users', 'root', '');;
-	}
+        //Povezivanje sa bazom
+        parent::__construct('mysql:host=localhost;dbname=users', 'root', '');;
+    }
 
-	//Osnovna funkcija za sve SELECT upite ka bazi
-	public function select($query, $bindValues = array(), $fetchMode = PDO::FETCH_ASSOC){
-		
-		//Prosleđivanje sql upita
-		$statement = $this->prepare($query);
-		//Postavljanje vrednosti koje se dinamički pune
-		foreach($bindValues as $key => $value){
-			$statement->bindValue(":$key", $value);
-		}
+    //Osnovna funkcija za sve SELECT upite ka bazi
+    public function select($query, $bindValues = array(), $fetchMode = PDO::FETCH_ASSOC)
+    {
 
-		$statement->execute();
-		return $statement->fetchAll($fetchMode);
-	}
+        //Prosleđivanje sql upita
+        $statement = $this->prepare($query);
+        //Postavljanje vrednosti koje se dinamički pune
+        foreach ($bindValues as $key => $value) {
+            $statement->bindValue(":$key", $value);
+        }
 
-	//Osnovna funkcija za sve INSERT upite
-	public function insert($table, $data){
+        $statement->execute();
+        return $statement->fetchAll($fetchMode);
+    }
 
-		//Cepa niz i razdvaja ih ','
-		$dataName = implode('`, `', array_keys($data));
-		//Dodaje ':' zbog bindValue-a, cepa niz i razdvaja ih po ', :'
-		$dataValues = ":" . implode(', :', array_keys($data));
+    //Osnovna funkcija za sve INSERT upite
+    public function insert($table, $data)
+    {
 
-		$statement = $this->prepare("INSERT INTO $table (`$dataName`) VALUES ($dataValues)");
+        //Cepa niz i razdvaja ih ','
+        $dataName = implode('`, `', array_keys($data));
+        //Dodaje ':' zbog bindValue-a, cepa niz i razdvaja ih po ', :'
+        $dataValues = ":" . implode(', :', array_keys($data));
 
-		foreach($data as $key => $value){
-			$statement->bindValue(":$key", $value);
-		}
+        $statement = $this->prepare("INSERT INTO $table (`$dataName`) VALUES ($dataValues)");
 
-		$statement->execute();
-	}
+        foreach ($data as $key => $value) {
+            $statement->bindValue(":$key", $value);
+        }
+
+        $statement->execute();
+    }
 }
